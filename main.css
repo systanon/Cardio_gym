@@ -1,4 +1,24 @@
 @import url(refresh.css);
+@media (max-width: 1366px){
+	.headerNav{
+		display: none;
+	}
+	
+}
+@media(min-width: 500px) and (max-width: 1365px){
+	nav.headerNavBurger{
+		z-index: 10;
+		display: grid;
+		transition: right 2s ease;
+	}
+	a.headerNavLink:not(:last-child) {
+		margin-right: 0px;
+	}
+	div#burgerMenu{
+		z-index: 10;
+		opacity: 1;
+	}
+}
 @media(max-width: 1919px){
 	nav.headerNav{
 		right: 0;
@@ -40,13 +60,65 @@
 	top: 90px;
 	left: 100px;
 }
-
+#burgerMenu{
+	position: absolute;
+	right:5%;
+	top:5%;
+	border:2px solid yellow;
+	width: 40px;
+	height: 40px;
+	opacity: 0; 
+	z-index: -10;
+	cursor: pointer;
+}
+.topLine {
+	position: absolute;
+	top:20%;
+	left:50%;
+	width: 30px;
+	height: 2px;
+	background: yellow;
+	transform: translate(-50%,-20%);
+}
+.middleLine{
+	position: absolute;
+	top:50%;
+	left:50%;
+	width: 30px;
+	height: 2px;
+	background: yellow;
+	transform: translate(-50%,-50%);
+}
+.bottomLine {
+	position: absolute;
+	bottom:20%;
+	left:50%;
+	width: 30px;
+	height: 2px;
+	background: yellow;
+	transform: translate(-50%,-20%);
+}
+/*#burgerMenu:before{
+	content:'';
+	position: absolute;
+	width: 40px;
+	height: 2px;
+	background: black;
+	top:50%;
+	transform: translateY(-50%);
+}*/
 .headerNav{
 	grid-area:headerNav;
 	position: absolute;
 	right: -20%;
 	top:100px;
 	z-index: 5;
+}
+.headerNavBurger{
+	position: fixed;
+	background: orange;
+	top:10%;
+	right: -50%;
 }
 .headerNavLink{
 	text-decoration: none;
@@ -109,9 +181,7 @@
 	min-height:290px;
 	position: relative;
 }
-.sliderItem{
-	transition: all 1.2s ease-in-out;
-}
+
 .leftSliders,.rightSliders,.centrPicture{
 	position: relative;
 }
@@ -140,7 +210,6 @@
 	height: 7px;
 	border: 4px solid white;
 	cursor: pointer;
-	transition: all 1.2s ease-in-out;
 }
 .dot:not(:last-child),.dot2:not(:last-child) {
 	margin-right: 10px;
@@ -241,7 +310,7 @@
 	color: #fff;
 }
 /*=================Popup menu=======================================*/
-#popUpBg {
+#popUpBg,#popUpBg2{
 	position: fixed;
 	background: rgba(0,0,0,0.7);
 	top:0;
@@ -252,7 +321,7 @@
 	display: none;
 }
 
-#popUpMainDiv{
+#popUpMainDiv,#popUpMainDiv2{
 	position: fixed;
 	width: 800px;
 	height: 880px;
@@ -262,7 +331,7 @@
 	background: url(image/form_bg.jpg) no-repeat 50%/cover; 
 	
 }
-#popUpMainDiv:before {
+#popUpMainDiv:before,#popUpMainDiv2:before {
 	content: '';
 	width: 100%;
 	height: 100%;
@@ -310,7 +379,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-#submit{
+#submit,#submit2{
 	position: absolute;
 	bottom: 100px ;
 	left: 25%;
@@ -334,7 +403,7 @@
 #mail{
 	margin-top: 25px;
 }
-input,#submit{
+input,#submit,#submit2{
 	cursor: pointer;
 }
 
@@ -350,7 +419,7 @@ input,#submit{
 	position: relative;
 }
 
-#registrationForm input:hover, #submit:hover{
+#registrationForm input:hover, #submit:hover,#submit2:hover{
 	transform: scale(1.3);
 }
 
@@ -363,3 +432,6 @@ input,#submit{
 #registrationForm input:not(:last-child){
 	margin-bottom: 25px;
 }
+
+/*==========================sign up============================*/
+
