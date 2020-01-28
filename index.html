@@ -26,7 +26,7 @@
 			<a class="headerNavLink" href="#">Team</a>
 			<a class="headerNavLink" href="#">Pricing</a>
 			<a id="join" class="headerNavLink" href="#">Reservation</a>	
-			<a href="#" class="headerNavLink">sign in</a>
+			<a href="#" class="headerNavLink" id='signIn'>sign in</a>
 			<a href="#" class="headerNavLink" id="signUp">sign up</a>			
 		</nav>
 		<div id="burgerMenu">
@@ -175,7 +175,7 @@
 		</div>
 		<div id="popUpBg2">
 			<div id="popUpMainDiv2">
-				<button id="closePopUp" class="closePopUp2">
+				<button class="closePopUp2">
 				</button>
 				<form id="registrationForm">
 					<input id="login" type="name" name="user_name" placeholder="Login">
@@ -183,6 +183,17 @@
 					<input id="pass2" type="password" placeholder="repeat your password" disabled="">
 				</form>
 				<button id="submit2">Submit</button>
+			</div>
+		</div>
+		<div id="popUpBg3">
+			<div id="popUpMainDiv3">
+				<button class="closePopUp3">
+				</button>
+				<form id="registrationForm">
+					<input id="loginSignIn" type="name" name="user_name" placeholder="Login">
+					<input id="passSignIn" type="password" placeholder="set your password" >
+				</form>
+				<button id="submitSignIn">Submit</button>
 			</div>
 		</div>
 	</header>

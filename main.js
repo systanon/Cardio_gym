@@ -293,8 +293,44 @@ submit2.onclick = function (event) {
 		},
 		body: JSON.stringify(userInfoSignUp)
 	})
-		.then(response => response.json())
-			.then(response => console.log(response))
-
+		.then(
+			response => {
+			console.log(response.ok)
+			if (response.ok) {
+				document.cookie = `login = ${userInfoSignUp.login }`
+				document.cookie = `password = ${userInfoSignUp.password}`
+			}
+		})
 	popUpBg2.style.display ='none';		
+}
+///================================sign in =============================================
+let signIn = document.getElementById('signIn'),
+	openSignInMenu = document.getElementById('popUpBg3'),
+	closeSignIn = document.querySelector('.closePopUp3'),
+	loginSignIn = document.getElementById('loginSignIn'),
+	passSignIn = document.getElementById('passSignIn'),
+	submitSignIn = document.getElementById('submitSignIn')
+
+signIn.onclick = function (event) {
+	openSignInMenu.style.display = 'block'
+}
+closeSignIn.onclick = function (event) {
+	openSignInMenu.style.display = 'none'
+}	
+loginSignIn.onchange = function(event) {
+	let loginSign = event.target.value
+		passSignIn.onchange = function(eve) {
+			let passwordSignIn = Sha256.hash(eve.target.value)
+			submitSignIn.onclick = function (e) {
+				fetch(`https://garevna-rest-api.glitch.me/user/${loginSign}`)
+					.then(response => response.json())
+						.then(
+							response => response.login === loginSign &&
+								response.password === passwordSignIn ? console.log('ok') :
+									console.log('wrong password or login') 
+										
+						)
+			}
+		}
+
 }
