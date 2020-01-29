@@ -322,15 +322,27 @@ loginSignIn.onchange = function(event) {
 		passSignIn.onchange = function(eve) {
 			let passwordSignIn = Sha256.hash(eve.target.value)
 			submitSignIn.onclick = function (e) {
-				fetch(`https://garevna-rest-api.glitch.me/user/${loginSign}`)
-					.then(response => response.json())
-						.then(
-							response => response.login === loginSign &&
-								response.password === passwordSignIn ? console.log('ok') :
-									console.log('wrong password or login') 
-										
-						)
+				const getUser = async (url) => {
+					let user = await (await fetch(url)).json()
+					user.login === loginSign && 
+						user.password === passwordSignIn ?
+							console.log('ok') :
+								console.log('wrong password or login')
+				}
+				getUser(`https://garevna-rest-api.glitch.me/user/${loginSign}`)
+				openSignInMenu.style.display = 'none'
+				
 			}
 		}
 
 }
+
+//========
+// fetch(`https://garevna-rest-api.glitch.me/user/${loginSign}`)
+// 					.then(response => response.json())
+// 						.then(
+// 							response => response.login === loginSign &&
+// 								response.password === passwordSignIn ? console.log('ok') :
+// 									console.log('wrong password or login') 
+										
+// 						)
