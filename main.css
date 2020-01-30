@@ -1,16 +1,30 @@
 @import url(refresh.css);
-@media (max-width: 1367px){
+@media (max-width: 1281px){
 	.headerNav{
 		display: none;
 	}
 	
 }
-@media(min-width: 0px) and (max-width: 1366px){
+@media(min-width: 0px) and (max-width: 1280px){
 	nav.headerNavBurger{
 		z-index: 10;
 		display: grid;
 		transition: right 2s ease;
 	}
+	div.slidersWrapp{
+		grid-template-rows: 1fr 1fr 1fr;
+    	grid-template-columns: none;
+    	grid-column-start: 2;
+    	grid-column-end: 2;
+    	grid-row-gap: 50px;
+	}
+	div.trainingServices {
+		grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    	grid-template-columns: none;
+    	grid-column-start: 2;
+    	grid-column-end: 2;
+    	grid-row-gap: 50px;
+	}*/
 	a.headerNavLink:not(:last-child) {
 		margin-right: 0px;
 	}
@@ -32,30 +46,37 @@
 			". slidersWrapp ." ;
 		grid-template-rows: 0.1fr 0.1fr minmax(270px,1fr);
 	}*/
-	div.slidersWrapp{
-		grid-template-rows: 0.5fr 0.5fr 0.5fr;
+	/*div.slidersWrapp{
+		grid-template-rows: 1fr 1fr 1fr;
     	grid-template-columns: none;
     	grid-column-start: 2;
     	grid-column-end: 2;
     	grid-row-gap: 50px;
 	}
+	div.trainingServices {
+		grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    	grid-template-columns: none;
+    	grid-column-start: 2;
+    	grid-column-end: 2;
+    	grid-row-gap: 50px;
+	}*/
 }
-@media(max-width: 1919px){
+/*@media(max-width: 1919px){
 	nav.headerNav{
 		right: 0;
 	}
 	
-}
+}*/
 .header {
 	background: url(image/headerImg.jpg) no-repeat 100%/cover;
     display: grid;
     position: relative;
-    grid-template-columns: 150px 1fr 150px;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
         " . . . "
         " . . . "
         " . . . ";
-    grid-template-rows: 230px 230px 1fr;
+    grid-template-rows: 230px 230px minmax(315px,1fr);
     padding-bottom: 50px;
 }
 .header:after{
@@ -207,8 +228,8 @@
 }
 
 .sliderItem >img,.centrPicture >img,.sliderItem2 >img{
-	width:100%;
-	min-height:290px;
+	width:365px;
+	min-height:315px;
 	position: relative;
 }
 
@@ -467,7 +488,7 @@ input,#submit,#submit2,#submitSignIn{
 
 .services{
 	display: grid;
-	grid-template-columns: 150px 1fr 150px;
+	grid-template-columns: 1fr 4fr 1fr;
 	grid-template-rows:350px minmax(315px,1fr);  
 }
 .servisesText{
