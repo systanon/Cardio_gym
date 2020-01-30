@@ -17,10 +17,27 @@
 	div#burgerMenu{
 		z-index: 10;
 		opacity: 1;
+		grid-column-start: 3;
+    	grid-row-start: 1;
 	}
-	div#popUpMainDiv2{
+	/*div#popUpMainDiv2{
 		width: 600px;
   	    min-height: 500px;
+	}*/
+	/*body>.header{
+		grid-template-columns: 0.5fr 4fr 0.5fr;
+		grid-template-areas: 
+			"logo headerNav . burgerMenu"
+			". headerText ."
+			". slidersWrapp ." ;
+		grid-template-rows: 0.1fr 0.1fr minmax(270px,1fr);
+	}*/
+	div.slidersWrapp{
+		grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    	grid-template-columns: none;
+    	grid-column-start: 2;
+    	grid-column-end: 2;
+    	grid-row-gap: 50px;
 	}
 }
 @media(max-width: 1919px){
@@ -30,16 +47,16 @@
 	
 }
 .header {
-	background:url(image/headerImg.jpg) no-repeat 100%/cover;
-	display: grid;
-	position: relative;
-	grid-template-columns: 2fr 4fr 2fr;
-	grid-template-areas: 
-		"logo headerNav . "
-		". headerText ."
-		". slidersWrapp ." ;
-	grid-template-rows: 1fr 1fr minmax(270px,1fr);
-	padding-bottom: 50px;
+	background: url(image/headerImg.jpg) no-repeat 100%/cover;
+    display: grid;
+    position: relative;
+    grid-template-columns: 150px 1fr 150px;
+    grid-template-areas:
+        " . . . "
+        " . . . "
+        " . . . ";
+    grid-template-rows: 230px 230px 1fr;
+    padding-bottom: 50px;
 }
 .header:after{
 	content: '';
@@ -58,16 +75,17 @@
     z-index: 2;
 }
 .logo{
-	grid-area:logo;
-	position: relative;
-	z-index: 5;
-	top: 90px;
-	left: 100px;
+	position: absolute;
+    z-index: 5;
+    grid-column-start: 1;
+    top: 90px;
+    grid-row-start: 1;
+    left: 100px;
 }
 #burgerMenu{
 	position: absolute;
-	right:5%;
-	top:5%;
+	left: 0;
+	top:90px;
 	border:2px solid yellow;
 	width: 40px;
 	height: 40px;
@@ -112,11 +130,12 @@
 	transform: translateY(-50%);
 }*/
 .headerNav{
-	grid-area:headerNav;
 	position: absolute;
-	right: -20%;
-	top:100px;
-	z-index: 5;
+    right: 2%;
+    top: 100px;
+    z-index: 5;
+    grid-row-start: 1;
+    grid-column-start: 2;
 }
 .headerNavBurger{
 	position: fixed;
@@ -124,6 +143,9 @@
 	top:10%;
 	right: -100%;
 }
+/*#burgerMenu{
+	grid-area: burgerMenu;
+}*/
 .headerNavLink{
 	text-decoration: none;
 	font-size: 18px;
@@ -138,10 +160,11 @@
 	background: #00a8ff;
 }
 .headerText{
-	grid-area:headerText;
 	text-align: center;
-	position: relative;
-	z-index: 5;
+    position: relative;
+    z-index: 5;
+    grid-column-start: 2;
+    grid-row-start: 2;
 }
 .headerText > h3 {
 	font-size: 25px;
@@ -167,17 +190,20 @@
 	right:160px;
 	background: #00a8ff;
 }
-.slidersWrapp{
+/*.slidersWrapp{
 	grid-area:slidersWrapp;
 	
-}
+}*/
 .slidersWrapp {
 	display: grid;
-	justify-content:center;
-	grid-template-columns: 365px 365px 365px;
-	position: relative;
-	z-index: 5;
-	grid-column-gap: 30px;
+    justify-content: center;
+    grid-template-columns: 365px 365px 365px;
+    position: relative;
+    z-index: 5;
+    grid-column-gap: 30px;
+    grid-row-start: 3;
+    grid-column-start: 2;
+    grid-column-end: 2;
 }
 
 .sliderItem >img,.centrPicture >img,.sliderItem2 >img{
@@ -327,8 +353,8 @@
 
 #popUpMainDiv,#popUpMainDiv2,#popUpMainDiv3{
 	position: fixed;
-	width: 800px;
-	height: 880px;
+	width: 500px;
+	height: 580px;
 	top:50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -385,8 +411,8 @@
 }
 #submit,#submit2,#submitSignIn{
 	position: absolute;
-	bottom: 100px ;
-	left: 25%;
+	bottom: 30px ;
+	left: 13.5%;
 	/*transform: translate(-50%, -50%);*/
 	width: 365px;
 	height: 70px;
@@ -437,5 +463,122 @@ input,#submit,#submit2,#submitSignIn{
 	margin-bottom: 25px;
 }
 
-/*==========================sign up============================*/
+/*==========================Services============================*/
 
+.services{
+	display: grid;
+	grid-template-columns: 150px 1fr 150px;
+	grid-template-rows:350px minmax(315px,1fr);  
+}
+.servisesText{
+	grid-column-start: 2;
+	grid-column-end: 2;
+	text-align: center;
+}
+.servisesText>h2 {
+	padding-top: 100px;
+	font-size: 49px;
+	color:black;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+}
+.servisesText p {
+	padding-top: 25px;
+	font-size: 23px;
+	color:#c3dbe8;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+.trainingServices {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 365px 365px 365px;
+	grid-column-gap:30px; 
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start:2;
+}
+.train{
+	width: 365px;
+	min-height: 315px;
+	border:3px solid #c3dbe8;
+	position: relative;
+}
+.train:before{
+	content: '';
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	width: 50px;
+	height: 50px;
+	background:url(image/HeartMonitor.png) no-repeat;
+	z-index: 5;
+}
+.powerTraining.train:before{
+	background:url(image/Weightlift.png) no-repeat;
+}
+.yogaPilates.train:before{
+	width: 64px;
+	height: 64px;
+	background:url(image/Guru.png) no-repeat;
+}
+.powerTraining:after,.cardioTreining:after{
+	content:'';
+	width: 64px;
+	height: 64px;
+	background:white;
+	position: absolute;
+	top:-5%;
+	left: 50%;
+	transform: translate(-50%,-5%);
+	display: none;
+}
+.train h2{
+	position: absolute;
+	font-size:24px;
+	font-family: 'Open Sans', sans-serif;
+	color:black;
+	top:70%;
+	left: 50%;
+	transform: translate(-50%,-70%);
+}
+.train p{
+	position: absolute;
+	text-align: center;
+	font-size:18px;
+	font-family: 'Open Sans', sans-serif;
+	color: #c3dbe8;
+	bottom:10%;
+	padding-left: 60px;
+	padding-right: 60px;
+	visibility: hidden;
+	opacity: 0;
+	/*left: 50%;*/
+}
+.train:hover.train{
+	border: 3px solid #00a8ff;
+}
+.train:hover.powerTraining:after,.train:hover.cardioTreining:after{
+	display: block;
+}
+.train:hover.train h2{
+	top:40%;
+	transform: translate(-50%,-40%)
+}
+.train:hover.train:before{
+	top:-5%;
+	transform: translate(-50%,-5%)
+}
+.train:hover.yogaPilates.train:before{
+	top:-9%;
+	transform: translate(-50%,-9%)
+}
+.train:hover.powerTraining.train:before{
+	top:-7%;
+	transform: translate(-50%,-7%)
+}
+.train:hover.train p{
+	visibility: visible;
+	opacity: 1;
+}

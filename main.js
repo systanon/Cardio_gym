@@ -1,4 +1,4 @@
-  history.replaceState(null, null, ' ');
+
   // ============================burger menu===========================
 let burgMenu = document.getElementById('burgerMenu'),
 	header = document.querySelector('.header'),
@@ -223,17 +223,28 @@ email.onchange = function (event) {
 }
 
 submit.onclick = function (event) {
-	fetch(`https://garevna-rest-api.glitch.me/user/${userInfo.name}`,{
-		method:"POST",
-		headers:{
-			"Content-Type":"application/json"
+	const writeUserInfo = async (url,method) => {
+		let user = await (await fetch(url,method)).json()
+		console.log(user)
+	}
+	writeUserInfo(`https://garevna-rest-api.glitch.me/user/${userInfo.name}`,{
+		method : 'POST',
+		headers : {
+			'Content-Type' :'application/json'
 		},
-		body: JSON.stringify(userInfo)
+		body : JSON.stringify(userInfo)
 	})
-		.then(response => response.json())
-			.then(response => console.log(response))
 }
-
+///=====================
+// fetch(`https://garevna-rest-api.glitch.me/user/${userInfo.name}`,{
+// 		method:"POST",
+// 		headers:{
+// 			"Content-Type":"application/json"
+// 		},
+// 		body: JSON.stringify(userInfo)
+// 	})
+// 		.then(response => response.json())
+// 			.then(response => console.log(response))
 //================================= sign up ===========================
 let signUp = document.getElementById('signUp'),
 	signUp2 = document.getElementById('signUp2'),
@@ -259,6 +270,7 @@ let login = document.getElementById('login'),
 	passwordUp1 = document.getElementById('pass1'),
 	passwordUp2 = document.getElementById('pass2'),
 	submit2 = document.getElementById('submit2');
+
 
 login.oninput = function (event) {
 		event.target.value.length > 8 || event.target.value.length === 0?
@@ -286,30 +298,52 @@ passwordUp2.onchange = function ( event ) {
        	userInfoSignUp.password = Sha256.hash ( event.target.value ) : null
 }
 submit2.onclick = function (event) {
-	fetch(`https://garevna-rest-api.glitch.me/user/${userInfoSignUp.login}`,{
-		method:"POST",
-		headers:{
-			"Content-Type":"application/json"
+	const writeUser = async (url,method) => {
+		let response = await (await fetch(url,method)).json()
+		console.log(response)
+		if (response) {
+			document.cookie = `login = ${userInfoSignUp.login}`
+			document.cookie = `password = ${userInfoSignUp.password}`
+		}
+	}
+	writeUser(`https://garevna-rest-api.glitch.me/user/${userInfoSignUp.login}`,{
+		method : 'POST',
+		headers : {
+			"Content-Type" : "application/json"
 		},
 		body: JSON.stringify(userInfoSignUp)
 	})
-		.then(
-			response => {
-			console.log(response.ok)
-			if (response.ok) {
-				document.cookie = `login = ${userInfoSignUp.login }`
-				document.cookie = `password = ${userInfoSignUp.password}`
-			}
-		})
 	popUpBg2.style.display ='none';		
 }
+
+///=============================
+// fetch(`https://garevna-rest-api.glitch.me/user/${userInfoSignUp.login}`,{
+// 		method:"POST",
+// 		headers:{
+// 			"Content-Type":"application/json"
+// 		},
+// 		body: JSON.stringify(userInfoSignUp)
+// 	})
+// 		.then(
+// 			response => {
+// 			console.log(response.ok)
+// 			if (response.ok) {
+// 				document.cookie = `login = ${userInfoSignUp.login }`
+// 				document.cookie = `password = ${userInfoSignUp.password}`
+// 			}
+// 		})
 ///================================sign in =============================================
 let signIn = document.getElementById('signIn'),
 	openSignInMenu = document.getElementById('popUpBg3'),
 	closeSignIn = document.querySelector('.closePopUp3'),
 	loginSignIn = document.getElementById('loginSignIn'),
 	passSignIn = document.getElementById('passSignIn'),
-	submitSignIn = document.getElementById('submitSignIn')
+	submitSignIn = document.getElementById('submitSignIn'),
+	openPopUpSignIn = document.getElementById('signIn2');
+
+openPopUpSignIn.onclick = function(event) {
+	openSignInMenu.style.display = 'block'	
+}
 
 signIn.onclick = function (event) {
 	openSignInMenu.style.display = 'block'
@@ -330,12 +364,15 @@ loginSignIn.onchange = function(event) {
 								console.log('wrong password or login')
 				}
 				getUser(`https://garevna-rest-api.glitch.me/user/${loginSign}`)
-				openSignInMenu.style.display = 'none'
+				//openSignInMenu.style.display = 'none'
 				
 			}
 		}
 
 }
+// window.addEventListener("resize", function(){
+// 	console.log(innerWidth)
+// })	
 
 //========
 // fetch(`https://garevna-rest-api.glitch.me/user/${loginSign}`)
