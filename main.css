@@ -17,6 +17,11 @@
 	    right: 0;
 	    left: auto;
 	}
+	button#closePopUp,button.closePopUp2,button.closePopUp3{
+		left: 50%;
+    	top: 0;
+    	transform: translateX(-50%)
+	}
 }		
 @media(min-width: 0px) and (max-width: 1200px){
 
