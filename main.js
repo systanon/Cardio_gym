@@ -1,4 +1,4 @@
-
+"use strict";
   // ============================burger menu===========================
 let burgMenu = document.getElementById('burgerMenu'),
 	header = document.querySelector('.header'),
@@ -29,12 +29,12 @@ window.addEventListener("resize", function(){
 function closeMenu (){
 	middleLine.style = `
 		display:block;
-	`
+	`;
 	topLine.style =`
 		top: 20%;
     	left: 50%;
 		transform: translate(-50%, -20%);
-	`
+	`;
 	bottomLine.style =`
 		bottom: 20%;
     	left: 50%;
@@ -59,7 +59,7 @@ function openMenu(){
 		transform: translate(-50%, -50%) rotate(45deg);
 	`
 	headerNavBurger.style = `
-		right:5%;
+		right:15%;
 	`
 }
 
@@ -299,12 +299,13 @@ passwordUp2.onchange = function ( event ) {
 }
 submit2.onclick = function (event) {
 	const writeUser = async (url,method) => {
-		let response = await (await fetch(url,method)).json()
-		console.log(response)
-		if (response) {
+		let response = await fetch(url,method)
+		//console.log(response)
+		if (response.status.ok) {
 			document.cookie = `login = ${userInfoSignUp.login}`
 			document.cookie = `password = ${userInfoSignUp.password}`
 		}
+		else throw new  Error('invalid fetch')
 	}
 	writeUser(`https://garevna-rest-api.glitch.me/user/${userInfoSignUp.login}`,{
 		method : 'POST',

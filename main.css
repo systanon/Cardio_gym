@@ -5,7 +5,21 @@
 	}
 	
 }
-@media(min-width: 0px) and (max-width: 1280px){
+@media only screen and (max-width: 768px) {
+	a.logo{
+		grid-column-start: 2;
+	    left: 0;
+	    grid-column-end: 2;
+ 	}
+ 	.header > #burgerMenu {
+	    grid-column-start: 2;
+	    grid-column-end: 2;
+	    right: 0;
+	    left: auto;
+	}
+}		
+@media(min-width: 0px) and (max-width: 1200px){
+
 	nav.headerNavBurger{
 		z-index: 10;
 		display: grid;
@@ -24,7 +38,7 @@
     	grid-column-start: 2;
     	grid-column-end: 2;
     	grid-row-gap: 50px;
-	}*/
+	}
 	a.headerNavLink:not(:last-child) {
 		margin-right: 0px;
 	}
@@ -34,39 +48,8 @@
 		grid-column-start: 3;
     	grid-row-start: 1;
 	}
-	/*div#popUpMainDiv2{
-		width: 600px;
-  	    min-height: 500px;
-	}*/
-	/*body>.header{
-		grid-template-columns: 0.5fr 4fr 0.5fr;
-		grid-template-areas: 
-			"logo headerNav . burgerMenu"
-			". headerText ."
-			". slidersWrapp ." ;
-		grid-template-rows: 0.1fr 0.1fr minmax(270px,1fr);
-	}*/
-	/*div.slidersWrapp{
-		grid-template-rows: 1fr 1fr 1fr;
-    	grid-template-columns: none;
-    	grid-column-start: 2;
-    	grid-column-end: 2;
-    	grid-row-gap: 50px;
-	}
-	div.trainingServices {
-		grid-template-rows: 0.5fr 0.5fr 0.5fr;
-    	grid-template-columns: none;
-    	grid-column-start: 2;
-    	grid-column-end: 2;
-    	grid-row-gap: 50px;
-	}*/
 }
-/*@media(max-width: 1919px){
-	nav.headerNav{
-		right: 0;
-	}
-	
-}*/
+
 .header {
 	background: url(image/headerImg.jpg) no-repeat 100%/cover;
     display: grid;
@@ -100,8 +83,9 @@
     z-index: 5;
     grid-column-start: 1;
     top: 90px;
+    right: 0;
+    grid-column-end: 1;
     grid-row-start: 1;
-    left: 100px;
 }
 #burgerMenu{
 	position: absolute;
@@ -141,15 +125,7 @@
 	background: yellow;
 	transform: translate(-50%,-20%);
 }
-/*#burgerMenu:before{
-	content:'';
-	position: absolute;
-	width: 40px;
-	height: 2px;
-	background: black;
-	top:50%;
-	transform: translateY(-50%);
-}*/
+
 .headerNav{
 	position: absolute;
     right: 2%;
@@ -161,12 +137,12 @@
 .headerNavBurger{
 	position: fixed;
 	background: orange;
-	top:10%;
+	top:21%;
 	right: -100%;
 }
-/*#burgerMenu{
-	grid-area: burgerMenu;
-}*/
+.headerNavBurger .headerNavLink:not(:last-child){
+	margin-right:0;
+	}
 .headerNavLink{
 	text-decoration: none;
 	font-size: 18px;
@@ -424,7 +400,7 @@
 	background: #000;
 	;
 }
-#registrationForm{
+.registrationForm{
 	position: absolute;
 	top:50%;
 	left: 50%;
@@ -458,7 +434,7 @@ input,#submit,#submit2,#submitSignIn{
 	cursor: pointer;
 }
 
-#registrationForm input{
+.registrationForm input{
 	width: 365px;
 	height: 70px;
 	background: transparent;
@@ -470,7 +446,7 @@ input,#submit,#submit2,#submitSignIn{
 	position: relative;
 }
 
-#registrationForm input:hover, #submit:hover,#submit2:hover,#submitSignIn:hover{
+.registrationForm input:hover, #submit:hover,#submit2:hover,#submitSignIn:hover{
 	transform: scale(1.3);
 }
 
@@ -480,7 +456,7 @@ input,#submit,#submit2,#submitSignIn{
 	font-weight: 300;
 } 
 
-#registrationForm input:not(:last-child){
+.registrationForm input:not(:last-child){
 	margin-bottom: 25px;
 }
 
