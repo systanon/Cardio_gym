@@ -192,10 +192,7 @@
 	right:160px;
 	background: #00a8ff;
 }
-/*.slidersWrapp{
-	grid-area:slidersWrapp;
-	
-}*/
+
 .slidersWrapp {
 	display: grid;
     justify-content: center;
@@ -225,6 +222,7 @@
 	height: 100%;
 	z-index: 5;
 	left:0;
+	top:0;
 }
 .sliderDots,.sliderDots2{
 	display: flex;
@@ -254,6 +252,7 @@
 	height: 100%;
 	z-index:5;
 	left:0;
+	top:0;
 }
 .centrPicture:after{
 	content: '';
@@ -263,6 +262,7 @@
 	height: 100%;
 	z-index: 5;
 	left:0;
+	top:0;
 }
 .into_slider_item {
 	position: absolute;

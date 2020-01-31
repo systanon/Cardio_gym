@@ -26,6 +26,14 @@ window.addEventListener("resize", function(){
 		transform: translate(-50%, -20%) ;
 	` ;
 });
+
+window.addEventListener("scroll", function() {
+ if (window.pageYOffset ){
+ 	closeMenu()
+ }
+})
+
+
 function closeMenu (){
 	middleLine.style = `
 		display:block;
@@ -41,7 +49,7 @@ function closeMenu (){
 		transform: translate(-50%, -20%) ;
 	`
 	headerNavBurger.style = `
-		right:-50%;
+		right:-100%;
 	`
 }
 function openMenu(){
