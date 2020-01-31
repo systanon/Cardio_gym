@@ -301,7 +301,7 @@ submit2.onclick = function (event) {
 	const writeUser = async (url,method) => {
 		let response = await fetch(url,method)
 		//console.log(response)
-		if (response.status.ok) {
+		if (response.ok) {
 			document.cookie = `login = ${userInfoSignUp.login}`
 			document.cookie = `password = ${userInfoSignUp.password}`
 		}
