@@ -1,4 +1,26 @@
 "use strict";
+
+// import {SliderM} from './slider.js';
+import * as lib from './slider.js';
+
+let slidesM = [
+	`https://s.sakh.com/i/m/market/2014/03/16/1d344e57806dd56703b37fe20bf0670e.jpeg`,
+	`https://ua.all.biz/img/ua/service_catalog/67269.jpeg`,
+	`https://images.ua.prom.st/404338698_tokarnye-raboty-na.jpg`,
+];
+
+let div = document.getElementById('mainSlider');
+
+let settings = {
+delay: 5000, //смена слайдов в ms.
+transition: 3, // Время появления картинки s.
+borderColor: "blue",
+transitionTimingFunction: "linear"//linear, ease-out, ease-in
+};
+
+let sliderM = new lib.Slider(div, slidesM, settings);
+sliderM.play();
+
   // ============================burger menu===========================
 let burgMenu = document.getElementById('burgerMenu'),
 	header = document.querySelector('.header'),
