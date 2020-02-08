@@ -184,12 +184,15 @@
 	letter-spacing: 4px;
 	position: relative;
 }
-.headerText > h1:before{
+.line{
+	position: relative;
+}
+.line:before{
 	content: '';
 	width: 4px;
 	height: 50px;
 	position: absolute;
-	right:160px;
+	right:-10px;
 	background: #00a8ff;
 }
 

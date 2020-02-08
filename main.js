@@ -310,8 +310,8 @@ submit2.onclick = function (event) {
 		let response = await fetch(url,method)
 		//console.log(response)
 		if (response.ok) {
-			document.cookie = `login = ${userInfoSignUp.login}`
-			document.cookie = `password = ${userInfoSignUp.password}`
+			document.cookie = `login=${userInfoSignUp.login}`
+			document.cookie = `password=${userInfoSignUp.password}`
 		}
 		else throw new  Error('invalid fetch')
 	}
@@ -379,9 +379,14 @@ loginSignIn.onchange = function(event) {
 		}
 
 }
-// window.addEventListener("resize", function(){
-// 	console.log(innerWidth)
-// })	
+
+///==================================================getCookie============================================
+// const getCookie = (key) => {
+// 	let cookieValue
+// 	document.cookie.split('; ').map(item => item.split('='))
+// 		.map(item => item[0] === key ? cookieValue = item[1] : null)
+// 	return cookieValue		
+// } 
 
 //========
 // fetch(`https://garevna-rest-api.glitch.me/user/${loginSign}`)
